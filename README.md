@@ -205,9 +205,9 @@ Example:
 
 👤 **Soulemanou kunchiefuh babanou**
 
-- GitHub: [@githubhandle](https://github.com/ChaabaneAnas/)
-- Twitter: [@twitterhandle](https://twitter.com/AnasChabaane)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/chaabaneanas/)
+- GitHub: [@githubhandle](https://github.com/soulemanou-software/)
+- Twitter: [@twitterhandle](https://twitter.com/soulemanou-software)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/soulemanou-software/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
