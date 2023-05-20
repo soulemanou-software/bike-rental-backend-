@@ -1,0 +1,360 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/bikes":
+    post:
+      summary: Creates a bike
+      tags:
+      - Bikes
+      parameters: []
+      responses:
+        '201':
+          description: bike created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                bike_type:
+                  type: string
+                description:
+                  type: string
+                brand:
+                  type: string
+                daily_rate:
+                  type: decimal
+                user_id:
+                  type: integer
+                images:
+                  type: hstore
+                color:
+                  type: array
+              required:
+              - name
+              - bike_type
+              - description
+              - brand
+              - daily_rate
+              - user_id
+              - images
+              - color
+          application/xml:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                bike_type:
+                  type: string
+                description:
+                  type: string
+                brand:
+                  type: string
+                daily_rate:
+                  type: decimal
+                user_id:
+                  type: integer
+                images:
+                  type: hstore
+                color:
+                  type: array
+              required:
+              - name
+              - bike_type
+              - description
+              - brand
+              - daily_rate
+              - user_id
+              - images
+              - color
+    get:
+      summary: Retrieves bikes
+      tags:
+      - Bikes
+      responses:
+        '200':
+          description: bikes found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    bike_type:
+                      type: string
+                    description:
+                      type: string
+                    brand:
+                      type: string
+                    daily_rate:
+                      type: decimal
+                    user_id:
+                      type: integer
+                    images:
+                      type: hstore
+                    color:
+                      type: array
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    bike_type:
+                      type: string
+                    description:
+                      type: string
+                    brand:
+                      type: string
+                    daily_rate:
+                      type: decimal
+                    user_id:
+                      type: integer
+                    images:
+                      type: hstore
+                    color:
+                      type: array
+  "/api/v1/bikes/{id}":
+    delete:
+      summary: Deletes a bike
+      tags:
+      - Bikes
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: bike deleted
+  "/api/v1/reservations":
+    post:
+      summary: Creates a reservation
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '201':
+          description: reservation created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bike_id:
+                  type: integer
+                user_id:
+                  type: integer
+                reservation_date:
+                  type: string
+                due_date:
+                  type: string
+                city:
+                  type: string
+              required:
+              - bike_id
+              - user_id
+              - reservation_date
+              - due_date
+              - city
+          application/xml:
+            schema:
+              type: object
+              properties:
+                bike_id:
+                  type: integer
+                user_id:
+                  type: integer
+                reservation_date:
+                  type: string
+                due_date:
+                  type: string
+                city:
+                  type: string
+              required:
+              - bike_id
+              - user_id
+              - reservation_date
+              - due_date
+              - city
+    get:
+      summary: Retrieves reservations
+      tags:
+      - Reservations
+      responses:
+        '200':
+          description: reservations found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    bike_id:
+                      type: integer
+                    user_id:
+                      type: integer
+                    reservation_date:
+                      type: string
+                    due_date:
+                      type: string
+                    city:
+                      type: string
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    bike_id:
+                      type: integer
+                    user_id:
+                      type: integer
+                    reservation_date:
+                      type: string
+                    due_date:
+                      type: string
+                    city:
+                      type: string
+  "/api/v1/reservations/{id}":
+    delete:
+      summary: Deletes reservation
+      tags:
+      - Reservations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: reservation deleted
+  "/api/v1/users":
+    post:
+      summary: Creates a user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: user created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - name
+              - email
+              - password
+          application/xml:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - name
+              - email
+              - password
+    get:
+      summary: Retrieves users
+      tags:
+      - Users
+      responses:
+        '200':
+          description: users found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    email:
+                      type: string
+                    password:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    email:
+                      type: string
+                    password:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+  "/api/v1/users/{id}":
+    delete:
+      summary: Deletes user
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: user deleted
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: https://bike-rental-api.onrender.com
